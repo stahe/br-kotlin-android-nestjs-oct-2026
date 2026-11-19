@@ -1,0 +1,896 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Um exemplo cliente/servidor [Kotlin Android] / [NestJS]">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/br-kotlin-android-nestjs-oct-2026/capitulo-5---executando-o-aplicativo-emulador-celular-apk.html">
+      
+      
+        <link rel="prev" href="capitulo-4---o-cliente-kotlin-da-aplicacao-rdvmedecins.html">
+      
+      
+        <link rel="next" href="capitulo-6---conclusao-e-proximos-passos.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>6. Capítulo 5 - Executando o aplicativo: emulador, celular, APK - Um exemplo cliente/servidor [Kotlin Android] / [NestJS]</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "Um exemplo cliente/servidor [Kotlin Android] / [NestJS]";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#6-capitulo-5-executando-o-aplicativo-emulador-celular-apk" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Um exemplo cliente/servidor [Kotlin Android] / [NestJS]" class="md-header__button md-logo" aria-label="Um exemplo cliente/servidor [Kotlin Android] / [NestJS]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Um exemplo cliente/servidor [Kotlin Android] / [NestJS]
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              6. Capítulo 5 - Executando o aplicativo: emulador, celular, APK
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Alternar para o modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Alternar para o modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Alternar para o modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Alternar para o modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/br-kotlin-android-nestjs-oct-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Um exemplo cliente/servidor [Kotlin Android] / [NestJS]" class="md-nav__button md-logo" aria-label="Um exemplo cliente/servidor [Kotlin Android] / [NestJS]" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Um exemplo cliente/servidor [Kotlin Android] / [NestJS]
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/br-kotlin-android-nestjs-oct-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bem-vindo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="introducao.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introdução
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="capitulo-1---configuracao-do-ambiente-de-trabalho.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Capítulo 1 - Configuração do ambiente de trabalho
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="capitulo-2---instalacao-do-servidor-nestjs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Capítulo 2 - Instalação do servidor [NestJS]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="capitulo-3---introducao-ao-android-e-ao-jetpack-compose.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Capítulo 3 - Introdução ao Android e ao Jetpack Compose
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="capitulo-4---o-cliente-kotlin-da-aplicacao-rdvmedecins.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Capítulo 4 - O cliente Kotlin da aplicação RdvMedecins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Capítulo 5 - Executando o aplicativo: emulador, celular, APK
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="capitulo-5---executando-o-aplicativo-emulador-celular-apk.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Capítulo 5 - Executando o aplicativo: emulador, celular, APK
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#61-um-unico-alvo-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1. Um único alvo: Android
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62-alvo-emulador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2. Alvo: emulador
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2. Alvo: emulador">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#621-a-armadilha-de-rede-localhost-nao-se-refere-mais-ao-pc-de-desenvolvimento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2.1. A armadilha de rede: localhost não se refere mais ao PC de desenvolvimento
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63-alvo-celular" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3. Alvo: celular
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64-duas-restricoes-especificas-do-mobile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4. Duas restrições específicas do mobile
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.4. Duas restrições específicas do mobile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#641-trafego-http-sem-criptografia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4.1. Tráfego HTTP sem criptografia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#642-permissao-de-acesso-a-rede" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4.2. Permissão de acesso à rede
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65-rotacao-da-tela" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5. Rotação da tela
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#66-uma-tela-estreita-a-armadilha-do-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6. Uma tela estreita: a armadilha do layout
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#67-gerar-um-apk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.7. Gerar um APK
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#68-e-o-iosaplicativos-desktop-e-web-kotlin-multiplatform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.8. E o iOS—aplicativos desktop e web? Kotlin Multiplatform
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#69-tabela-resumo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.9. Tabela-resumo
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="capitulo-6---conclusao-e-proximos-passos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Capítulo 6 - Conclusão e próximos passos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="6-capitulo-5-executando-o-aplicativo-emulador-celular-apk">6. <span style="color: #2e74b5">Capítulo 5 - Executando o aplicativo: emulador, celular, APK</span></h1>
+<h2 id="61-um-unico-alvo-android">6.1. <span style="color: #2e74b5">Um único alvo: Android</span></h2>
+<p>O Capítulo 5 do curso de Flutter mostrou como um único código-fonte é compilado para três famílias de alvos: mobile, desktop e web. Não é o que acontece aqui: o cliente deste documento é um aplicativo Android—e somente Android. Em vez disso, ele usa diretamente as ferramentas e bibliotecas da plataforma (<em>[Gradle]</em>, <em>[Android Studio]</em>, <em>[ViewModel]</em>, <strong><em>[SharedPreferences]</em></strong>...), sem uma camada de abstração. A última seção deste capítulo explica o que seria necessário para também atingir o iOS, o desktop e a web.</p>
+<p>Os comandos deste capítulo usam a ferramenta <strong><em>[adb]</em></strong> e o Gradle wrapper. No Windows, se as pastas <strong><em>[platform-tools]</em></strong> e <strong><em>[emulator]</em></strong> do SDK não estiverem no [PATH], substitua <strong><em>[adb]</em></strong> por <strong><em>[&amp; &quot;$env:LOCALAPPDATA\Android\Sdk\platform-tools\adb.exe&quot;]</em></strong> (veja o Capítulo 1).</p>
+<h2 id="62-alvo-emulador">6.2. <span style="color: #2e74b5">Alvo: emulador</span></h2>
+<p>Este é o alvo usado em todo o Capítulo 4. No Android Studio: selecione o emulador na lista de dispositivos e, em seguida, escolha [Run]. Na linha de comando, na pasta do projeto:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>adb devices                                        # o emulador deve aparecer
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>.\gradlew.bat installDebug                          # compila e instala a aplicação
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>adb shell am start -n fr.rdvmedecins.client/.MainActivity   # inicia a aplicação
+</code></pre></div></td></tr></table></div>
+<h3 id="621-a-armadilha-de-rede-localhost-nao-se-refere-mais-ao-pc-de-desenvolvimento">6.2.1. <span style="color: #1f4d78">A armadilha de rede: <code>localhost</code> não se refere mais ao PC de desenvolvimento</span></h3>
+<p>É O detalhe importante a conhecer no desenvolvimento mobile, sem relação com Kotlin ou Compose: <strong><em>[localhost]</em></strong> (ou <strong><em>[127.0.0.1]</em></strong>), no campo “Server URL”, refere-se à máquina que executa o código. Ora, o emulador é uma máquina VIRTUAL, distinta do PC de desenvolvimento onde o servidor [NestJS] está em execução, embora ambos pareçam “estar no mesmo computador”. Há duas soluções:</p>
+<ul>
+  <li>o endereço especial <i><b>[http://10.0.2.2:8080]</b></i>: específico do emulador oficial do Android, ele é redirecionado para o <i><b>[localhost]</b></i> da máquina hospedeira. É o valor padrão do campo “Server URL” (veja <i><b>[SettingsService.kt]</b></i>);
+  </li>
+  <li>o comando <i><b>[adb reverse tcp:8080 tcp:8080]</b></i>, seguido da URL [http://localhost:8080]. <i><b>[adb reverse] </b></i>cria um túnel: qualquer conexão do dispositivo para a SUA porta 8080 é encaminhada pelo <i><b>[adb] </b></i>para a porta 8080 do computador. O túnel desaparece quando o emulador é encerrado (ou quando o servidor <i><b>[adb]</b></i> é reiniciado): é preciso então executar o comando novamente.
+  </li>
+</ul>
+
+<p>A primeira solução é a mais simples. No entanto, no computador usado para escrever este documento, ela não funcionou: a conexão com <strong><em>[10.0.2.2:8080]</em></strong> falhou após o tempo limite de 10 segundos, embora o servidor respondesse normalmente em <strong><em>[localhost]</em></strong>. Esse tipo de problema depende da configuração de rede do PC (firewall, VPN, software de virtualização): <strong><em>[adb reverse]</em></strong> contorna esse problema, já que o tráfego passa então pelo <strong><em>[adb]</em></strong> e não pela rede virtual do emulador. A mensagem exibida pelo aplicativo (“Incorrect login or password.”) não ajuda muito; a causa exata pode ser encontrada no log do Android, graças às chamadas do cliente <strong><em>a [Log.w(...)]</em></strong> (a aba [Logcat] do Android Studio, filtrada por <strong><em>[RdvMedecins]</em></strong>, ou o comando <strong><em>[adb logcat -s RdvMedecins]</em></strong>):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>W RdvMedecins: login failed
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>W RdvMedecins: java.net.SocketTimeoutException: failed to connect to /10.0.2.2 (port 8080)
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>from /10.0.2.16 (port 56580) after 10000ms
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>W RdvMedecins:   at okhttp3.internal.connection.RealConnection.connectSocket(RealConnection.kt:295)
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>...
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>W RdvMedecins:   at fr.rdvmedecins.client.core.services.AuthService$logIn$result$1.invokeSuspend(AuthService.kt:114)
+</code></pre></div></td></tr></table></div>
+<p>O comando [adb reverse] e a URL [http://localhost:8080] (salva por [SettingsService]) resolveram o problema: esta é a configuração usada em todas as capturas de tela do Capítulo 4.</p>
+<h2 id="63-alvo-celular">6.3. <span style="color: #2e74b5">Alvo: celular</span></h2>
+<p>O celular configurado no Capítulo 1 (opções do desenvolvedor, depuração USB) aparece em <strong><em>[adb devices]</em></strong> e na lista de dispositivos do Android Studio: ele funciona exatamente como o emulador ([Run] ou <strong><em>[gradlew installDebug]</em></strong>). Apenas a URL do servidor muda:</p>
+<ul>
+  <li>celular conectado por cabo USB: o comando <i><b>[adb reverse tcp:8080 tcp:8080] </b></i>também funciona com um celular real, e a URL [http://localhost:8080]<i><b> </b></i>passa então a alcançar o servidor do PC pelo cabo. Essa é a solução mais simples;
+  </li>
+  <li>celular na mesma rede Wi-Fi que o PC: use o endereço IP LOCAL do PC nessa rede (por exemplo, <i><b>[http://192.168.1.48:8080]</b></i>; o comando <i><b>[ipconfig]</b></i> o exibe no Windows), nunca <i><b>[localhost] </b></i>ou <i><b>[10.0.2.2]</b></i>, pois ambos se referem ao próprio celular nesse caso. O firewall do PC deve então permitir conexões de entrada na porta 8080 (o Windows pede que você faça isso na primeira vez que o Node.js é iniciado).
+  </li>
+</ul>
+
+<p>O servidor <em>[NestJS]</em> escuta em todas as interfaces de rede do PC (<strong><em>[0.0.0.0]</em></strong>): nenhuma alteração é necessária do lado dele.</p>
+<h2 id="64-duas-restricoes-especificas-do-mobile">6.4. <span style="color: #2e74b5">Duas restrições específicas do mobile</span></h2>
+<h3 id="641-trafego-http-sem-criptografia">6.4.1. <span style="color: #1f4d78">Tráfego HTTP sem criptografia</span></h3>
+<p>A partir do Android 9 (API 28), por padrão, um aplicativo não pode mais se comunicar em HTTP “plaintext” (<strong><em>[http://]</em></strong>, sem criptografia): somente <strong><em>[https://]</em></strong> é permitido. Como o servidor deste curso escuta em HTTP simples, o manifesto do cliente declara a exceção <strong><em>[android:usesCleartextTraffic=&quot;true&quot;]</em></strong> (veja o Capítulo 4). Sem ela, qualquer requisição falha com a exceção <strong><em>[CLEARTEXT communication to 10.0.2.2 not permitted by network security policy]</em></strong>.</p>
+<p>Essa autorização vale para TODOS os servidores. Uma configuração mais granular é possível, usando um arquivo <strong><em>[res/xml/network_security_config.xml]</em></strong> que permite HTTP simples apenas para determinados nomes de host:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span>
+<span class="normal"><a href="#__codelineno-2-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="nt">&lt;network-security-config&gt;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="nt">&lt;domain-config</span><span class="w"> </span><span class="na">cleartextTrafficPermitted=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">        </span><span class="nt">&lt;domain</span><span class="w"> </span><span class="na">includeSubdomains=</span><span class="s">"false"</span><span class="nt">&gt;</span>10.0.2.2<span class="nt">&lt;/domain&gt;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">        </span><span class="nt">&lt;domain</span><span class="w"> </span><span class="na">includeSubdomains=</span><span class="s">"false"</span><span class="nt">&gt;</span>localhost<span class="nt">&lt;/domain&gt;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="nt">&lt;/domain-config&gt;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="nt">&lt;/network-security-config&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>O arquivo é declarado no manifesto por meio do atributo <strong><em>[android:networkSecurityConfig=&quot;@xml/network_security_config&quot;]</em></strong> da tag <strong><em>[&lt;application&gt;]</em></strong>. Este documento não o utiliza: o endereço IP de um PC em uma rede Wi-Fi não é conhecido antecipadamente. Em ambos os casos, essas configurações valem apenas para o desenvolvimento: em produção, o servidor seria exposto em <strong><em>[https://]</em></strong> (por exemplo, atrás de um “proxy reverso” como o Nginx), o que tornaria qualquer exceção desnecessária.</p>
+<h3 id="642-permissao-de-acesso-a-rede">6.4.2. <span style="color: #1f4d78">Permissão de acesso à rede</span></h3>
+<p>Sem a linha <strong><em>[&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;]</em></strong> no manifesto, a primeira requisição falha, lançando uma exceção <strong><em>[SocketException: socket failed: EPERM (Operation not permitted)]</em></strong> (ou <strong><em>uma exceção [SecurityException: Permission denied (missing INTERNET permission?)]</em></strong> quando a URL contém um nome de host). Trata-se de um descuido comum: o template de projeto do Android Studio não a inclui.</p>
+<h2 id="65-rotacao-da-tela">6.5. <span style="color: #2e74b5">Rotação da tela</span></h2>
+<p>Girar o celular (ou o emulador, pelos botões de rotação da sua barra lateral) DESTRÓI e depois RECRIA a activity (veja o Capítulo 3). O cliente lida com isso graças a três escolhas feitas no Capítulo 4:</p>
+<ul>
+  <li>os serviços são construídos por <i><b>[RdvMedecinsApplication]</b></i>, que não é recriada;
+  </li>
+  <li>o estado da tela (médicos, pacientes, agenda, horário em processo de agendamento) é armazenado em <i><b>[AppViewModel]</b></i>, que o Android preserva;
+  </li>
+  <li>os estados menores da interface (login em digitação, médico e dia selecionados, paciente selecionado na caixa de diálogo) são armazenados em <i><b>[rememberSaveable]</b></i>.
+  </li>
+</ul>
+
+<p>As capturas de tela a seguir foram feitas com a caixa de diálogo de agendamento aberta: primeiro no modo paisagem e depois de volta ao modo retrato. A caixa de diálogo, a agenda e o médico e o dia selecionados continuam lá:</p>
+<p><img src="images/10000000000004B00000021C42A7CD86.png" width="491" height="221" style="width:13cm;height:5.851cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004B00000021C42A7CD86.png" /></p>
+<p><img src="images/100000000000021C000004B075B984CE.png" width="227" height="504" style="width:6.001cm;height:13.333cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000021C000004B075B984CE.png" /></p>
+<p>No modo paisagem, a tela tem mais de 600 dp de largura: a barra de título exibe o título completo e o nome do usuário, e <strong><em>[DoctorDayPicker]</em></strong> dispõe seus três elementos em uma única linha:</p>
+<p><img src="images/10000000000004B00000021C4664ADD5.png" width="491" height="221" style="width:13cm;height:5.851cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004B00000021C4664ADD5.png" /></p>
+<p>Para avaliar o valor dessas escolhas, podemos tentar o oposto: em <strong><em>[App.kt]</em></strong>, substitua <strong><em>[val vm = viewModel { AppViewModel(auth, api) }]</em></strong> por <strong><em>[val vm = remember { AppViewModel(auth, api) }]</em></strong>. Após uma rotação, a agenda desaparece e a pesquisa precisa ser refeita: <strong><em>[remember]</em></strong> não sobrevive à recriação da activity.</p>
+<h2 id="66-uma-tela-estreita-a-armadilha-do-layout">6.6. <span style="color: #2e74b5">Uma tela estreita: a armadilha do layout</span></h2>
+<p>Um celular em modo retrato tem apenas cerca de 400 dp de largura. A primeira versão de <strong><em>[ScheduleView.kt]</em></strong>, assim como a do cliente Flutter, tropeçou nessa largura. Cada linha da agenda dividia a largura disponível entre suas três colunas com pesos fixos—30% para o horário, 45% para o status e 25% para o botão (<strong><em>[Modifier.weight(0.25f)]</em></strong>). No celular, na interface em francês, 25% da linha não eram suficientes para o rótulo “Réserver”, que era truncado para “Rése”:</p>
+<p><img src="images/100000000000021C000004B0000F4C9B.png" width="227" height="504" style="width:6.001cm;height:13.333cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000021C000004B0000F4C9B.png" /></p>
+<p><img src="images/100000000000021C000004B0FF3464ED.png" width="227" height="504" style="width:6.001cm;height:13.333cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000021C000004B0FF3464ED.png" /></p>
+<p>A correção (captura de tela à direita; veja <strong><em>[ScheduleView.kt]</em></strong> no Capítulo 4): o botão não tem mais peso e ocupa a largura do seu texto; o horário tem largura fixa; o status ocupa a largura restante (<strong><em>[Modifier.weight(1f)]</em></strong>). Daí decorrem duas regras, as mesmas do cliente Flutter:</p>
+<ul>
+  <li>Nunca presuma uma largura: deixe um elemento assumir o tamanho do seu conteúdo ou verifique a largura realmente disponível (<i><b>[BoxWithConstraints]</b></i>, <i><b>[LocalConfiguration.current.screenWidthDp]</b></i>) para escolher um layout;
+  </li>
+  <li>Teste cedo em uma tela estreita e nos dois idiomas: os rótulos em inglês (“Book”, “Cancel”) são mais curtos que os rótulos em francês, e um bug pode aparecer em apenas um dos dois.
+  </li>
+</ul>
+
+<h2 id="67-gerar-um-apk">6.7. <span style="color: #2e74b5">Gerar um APK</span></h2>
+<p><strong><em>[gradlew assembleDebug]</em></strong> (Capítulo 1) gera <strong><em>[app/build/outputs/apk/debug/app-debug.apk]</em></strong>, um aplicativo “debug”: assinado com uma chave de desenvolvimento gerada automaticamente pelo Android Studio, ele pode ser instalado em um emulador ou em um celular (<strong><em>[adb install app-debug.apk]</em></strong>), mas não pode ser publicado na Play Store. Para uma distribuição real:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>.\gradlew.bat assembleRelease    # APK de produção: app/build/outputs/apk/release/
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>.\gradlew.bat bundleRelease      # Android App Bundle (.aab), o formato exigido pela Play Store
+</code></pre></div></td></tr></table></div>
+<p>Uma versão de produção deve ser assinada com uma chave pessoal, criada uma única vez e guardada com segurança: o Android Studio oferece o menu [Build / Generate Signed App Bundle or APK...] para isso. A Play Store também exige um ícone, uma política de privacidade... e um servidor em <strong><em>[https://]</em></strong>.</p>
+<h2 id="68-e-o-iosaplicativos-desktop-e-web-kotlin-multiplatform">6.8. <span style="color: #2e74b5">E o iOS—aplicativos desktop e web? Kotlin Multiplatform</span></h2>
+<p>O cliente Flutter do curso gerava aplicativos mobile, desktop e web a partir de uma única base de código. O equivalente existe no ecossistema Kotlin: o <em>[Kotlin Multiplatform]</em> (KMP) permite compartilhar código Kotlin entre Android, iOS, desktop (JVM) e web, enquanto o <em>[Compose Multiplatform]</em>, da JetBrains, estende o Jetpack Compose a esses mesmos alvos. Portar o cliente deste documento consistiria principalmente em substituir as bibliotecas específicas do Android por equivalentes multiplataforma:</p>
+<ul>
+  <li><i>[OkHttp] </i>→ <i>[Ktor Client]</i>, o cliente HTTP multiplataforma da JetBrains;
+  </li>
+  <li><i><b>[SharedPreferences] </b></i>→ uma biblioteca multiplataforma de armazenamento chave-valor (por exemplo, <i>[DataStore]</i>, que agora é multiplataforma);
+  </li>
+  <li>a pasta Android <i><b>[assets/] </b></i>→ recursos do Compose Multiplatform;
+  </li>
+  <li><i><b>[android.util.Log]</b></i>, <i><b>[Handler] </b></i>→ seus equivalentes multiplataforma (ou corrotinas em <i><b>[Dispatchers.Main]</b></i>);
+  </li>
+  <li>a classe Application e a activity permanecem, mas apenas para o alvo Android: cada alvo tem seu próprio ponto de entrada.
+  </li>
+</ul>
+
+<p>As funções @Composable, as classes <strong><em>[@Serializable]</em></strong>, as corrotinas e até o ViewModel (disponível em multiplataforma) seriam mantidos quase sem alterações. Esse porte está além do escopo deste documento.</p>
+<h2 id="69-tabela-resumo">6.9. <span style="color: #2e74b5">Tabela-resumo</span></h2>
+<ul>
+  <li>Emulador Android - [Run] ou <i><b>[gradlew installDebug]</b></i> - Server URL: <i><b>[http://10.0.2.2:8080]</b></i>, ou <i><b>[adb reverse tcp:8080 tcp:8080] </b></i>seguido de <i><b>[http://localhost:8080]</b></i>;
+  </li>
+  <li>Celular USB - [Run] ou <i><b>[gradlew installDebug]</b></i> - URL: <i><b>[adb reverse tcp:8080 tcp:8080], </b></i>depois <i><b>[http://localhost:8080]</b></i>;
+  </li>
+  <li>Celular Wi-Fi - [Run] ou <i><b>[gradlew installDebug]</b></i> - URL: endereço IP local do PC, porta 8080 aberta no firewall;
+  </li>
+  <li>em todos os casos: permissão <i><b>[INTERNET]</b></i> e autorização para HTTP em texto simples no manifesto;
+  </li>
+  <li>Distribuição: <i><b>[gradlew assembleRelease] </b></i>(APK) ou <i><b>[bundleRelease] </b></i>(Play Store), com uma chave de assinatura pessoal.
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        Este curso, escrito pela IA <strong>Claude</strong>, da Anthropic, a pedido de <strong>Serge Tahé</strong>, é disponibilizado ao público sob os termos da licença
+        <em>Creative Commons Atribuição – Uso Não Comercial –
+        Compartilha Igual 3.0 Não Adaptada</em>.
+
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>
